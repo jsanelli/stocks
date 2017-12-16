@@ -1,0 +1,22 @@
+#!/usr/bin/Rscript
+
+# import csv
+csco <- read.csv(file="csco.csv",head=FALSE,sep=",")
+#csco
+
+# select rows for March 2000
+march2000 = csco[c(545:567),]
+#march2000
+
+# select hlc (high, low, close)
+hlc = march2000[, c("V4","V5","V6")]
+#hlc
+
+# select c (close)
+c = hlc[, c("V6")]
+#c 
+
+# plot array and save to png
+png('plot.png')
+plot(c)
+dev.off()
