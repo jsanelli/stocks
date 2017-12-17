@@ -8,33 +8,47 @@ csco <- read.csv(file="csco.csv",head=FALSE,sep=",")
 march2000 = csco[c(545:567),]
 #march2000
 
-# select hlc (high, low, close)
-hlc = march2000[, c("V4","V5","V6")]
+# select hlc (date, high, low, close)
+dhlc = march2000[, c("V1","V4","V5","V6")]
 #hlc
 
+# select dc (date, close)
+#dc = dhlc[, c("V1","V6")]
+#dc 
+
+# select d (date)
+d = dhlc[, c("V1")]
+#d 
+# convert data to day
+subtrahend = 20000300
+d = d - subtrahend
+#d
+
 # select c (close)
-c = hlc[, c("V6")]
+c = dhlc[, c("V6")]
 #c 
 
+# combine columns
+dc = cbind(d, c)
+#dc
+
 # plot array and save to png
-#png('plot.png')
+png('plot.png')
 svg('plot.svg')
-plot(c, xlab = "", ylab = "",
-     type = "o", # connect dots
-     col = "red",
-     xlim = c(1,31),
-     ylim = c(60,80))
+plot(dc, xlab = "", ylab = "",
+    type = "o", # connect dots
+    col = "red",
+    xlim = c(1,31),
+    ylim = c(60,80))
 
-title(main = list("Cisco Stock Price (March 2000)",
-                  cex = 1.5,
-                  col = "red",
-                  font = 3))
-title(xlab = "Day")
-title(ylab = "Closing Price ($)")
+#title(main = list("Cisco Stock Price (March 2000)",
+#                 cex = 1.5,
+#                 col = "red",
+#                 font = 3))
+#title(xlab = "Day")
+#title(ylab = "Closing Price ($)")
 
-
-
-dev.off()
+#dev.off()
 
 # display plot in brower
-browseURL("plot.svg")
+#browseURL("plot.svg")
