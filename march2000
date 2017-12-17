@@ -41,14 +41,14 @@ plot(dc, xlab = "", ylab = "",
     xlim = c(1,31),
     ylim = c(60,80))
 
-#title(main = list("Cisco Stock Price (March 2000)",
-#                 cex = 1.5,
-#                 col = "red",
-#                 font = 3))
-#title(xlab = "Day")
-#title(ylab = "Closing Price ($)")
+title(main = list("Cisco Stock Price (March 2000)",
+                 cex = 1.5,
+                 col = "red",
+                 font = 3))
+title(xlab = "Day")
+title(ylab = "Closing Price ($)")
 
-#dev.off()
+dev.off()
 
 # display plot in brower
-#browseURL("plot.svg")
+browseURL("plot.svg")
