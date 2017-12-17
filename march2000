@@ -17,6 +17,24 @@ c = hlc[, c("V6")]
 #c 
 
 # plot array and save to png
-png('plot.png')
-plot(c)
+#png('plot.png')
+svg('plot.svg')
+plot(c, xlab = "", ylab = "",
+     type = "o", # connect dots
+     col = "red",
+     xlim = c(1,31),
+     ylim = c(60,80))
+
+title(main = list("Cisco Stock Price (March 2000)",
+                  cex = 1.5,
+                  col = "red",
+                  font = 3))
+title(xlab = "Day")
+title(ylab = "Closing Price ($)")
+
+
+
 dev.off()
+
+# display plot in brower
+browseURL("plot.svg")
