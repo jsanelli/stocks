@@ -2,6 +2,7 @@
 
 # import csv
 csco <- read.csv(file="csco.csv",head=FALSE,sep=",")
+colnames(csco) <- c("d","V2","o","h","l","c","v") # date, V2, open, high, low, close, volume)
 #csco
 
 # select rows for March 2000
@@ -9,15 +10,15 @@ march2000 = csco[c(545:567),]
 #march2000
 
 # select hlc (date, high, low, close)
-dhlc = march2000[, c("V1","V4","V5","V6")]
+dhlc = march2000[, c("d","h","l","c")]
 #hlc
 
 # select dc (date, close)
-#dc = dhlc[, c("V1","V6")]
+#dc = dhlc[, c("d","c")]
 #dc 
 
 # select d (date)
-d = dhlc[, c("V1")]
+d = dhlc[, c("d")]
 #d 
 # convert data to day
 subtrahend = 20000300
@@ -25,7 +26,7 @@ d = d - subtrahend
 #d
 
 # select c (close)
-c = dhlc[, c("V6")]
+c = dhlc[, c("c")]
 #c 
 
 # combine columns
